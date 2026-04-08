@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Australian ReUse — Where Clothes Don't Go to Waste</title>
+<meta name="description" content="Australian ReUse — Where Clothes Don't Go to Waste. Get in touch today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --magenta:#B4036D;
+  --magenta-dark:#8E0256;
+  --magenta-light:#D4247F;
+  --magenta-glow:rgba(180,3,109,.12);
+  --charcoal:#1A1A2E;
+  --off-white:#FAF7F9;
+  --white:#FFFFFF;
+  --text:#1A1A2E;
+  --text-muted:#6B6B80;
+  --border:#E8DFE5;
+  --success:#16A34A;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--off-white);overflow-x:hidden;line-height:1.6;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+
+/* ── CANVAS ── */
+#bgCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.35}
+
+/* ── MAIN WRAPPER ── */
+.page-wrap{position:relative;z-index:1;width:100%;max-width:520px;padding:50px 24px 40px;display:flex;flex-direction:column;align-items:center;gap:36px}
+
+/* ── LOGO ── */
+.logo-block{text-align:center}
+.logo-block img{max-width:280px;width:100%;height:auto}
+
+/* ── FORM CARD ── */
+.form-card{width:100%;background:var(--white);border:1px solid var(--border);border-radius:20px;padding:36px 32px;box-shadow:0 8px 50px rgba(180,3,109,.06)}
+.form-heading{text-align:center;margin-bottom:28px}
+.form-heading h1{font-size:22px;font-weight:700;color:var(--charcoal);margin-bottom:6px}
+.form-heading p{font-size:14px;color:var(--text-muted);line-height:1.55}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.form-group{display:flex;flex-direction:column}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:12.5px;font-weight:600;color:var(--text);margin-bottom:5px;letter-spacing:.2px}
+.form-group input,.form-group textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:14.5px;font-family:'DM Sans',sans-serif;color:var(--text);background:var(--off-white);transition:all .2s;outline:none;resize:vertical}
+.form-group input::placeholder,.form-group textarea::placeholder{color:#B0A8B0}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--magenta);background:var(--white);box-shadow:0 0 0 3px rgba(180,3,109,.1)}
+.form-group textarea{min-height:100px}
+.form-submit{margin-top:6px}
+.btn-primary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--magenta);color:var(--white);padding:14px 28px;border-radius:50px;font-size:15px;font-weight:600;text-decoration:none;transition:all .25s;border:none;cursor:pointer;font-family:inherit}
+.btn-primary:hover{background:var(--magenta-dark);transform:translateY(-1px);box-shadow:0 6px 24px rgba(180,3,109,.3)}
+.btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
+.form-msg{text-align:center;margin-top:14px;font-size:13.5px;font-weight:500;display:none}
+.form-msg.success{display:block;color:var(--success)}
+.form-msg.error{display:block;color:#DC2626}
+
+/* ── FOOTER ── */
+.footer{position:relative;z-index:1;text-align:center;padding:0 24px 32px}
+.footer p{font-size:12px;color:var(--text-muted)}
+.footer a{color:var(--magenta);text-decoration:none;font-weight:500}
+.footer a:hover{text-decoration:underline}
+
+/* ── MOBILE ── */
+@media(max-width:560px){
+  .page-wrap{padding:36px 16px 28px}
+  .logo-block img{max-width:220px}
+  .form-card{padding:28px 20px;border-radius:16px}
+  .form-row{grid-template-columns:1fr}
+}
+
+/* ── FADE-IN ── */
+.fade-up{opacity:0;transform:translateY(18px);animation:fadeUp .7s ease forwards}
+.fade-up-delay{animation-delay:.15s}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Canvas Background -->
+<canvas id="bgCanvas"></canvas>
+
+<div class="page-wrap">
+  <!-- LOGO -->
+  <div class="logo-block fade-up">
+    <img src="Australian_reuse_logo.png" alt="Australian ReUse — Where Clothes Don't Go to Waste">
+  </div>
+
+  <!-- CONTACT FORM -->
+  <div class="form-card fade-up fade-up-delay">
+    <div class="form-heading">
+      <h1>Get in Touch</h1>
+      <p>Have a question or want to work with us? Fill out the form and we'll get back to you within 1 business day.</p>
+    </div>
+    <form id="contactForm" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com.au" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX">
+        </div>
+        <div class="form-group">
+          <label for="postcode">Postcode *</label>
+          <input type="text" id="postcode" name="postcode" placeholder="2000" required maxlength="4" inputmode="numeric">
+        </div>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn-primary" id="submitBtn">
+          Send Enquiry
+          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </button>
+      </div>
+      <div class="form-msg" id="formMsg"></div>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer fade-up" style="animation-delay:.3s">
+  <p>&copy; 2026 Australian ReUse. All rights reserved. &nbsp;|&nbsp; <a href="mailto:collections@australianreuse.com.au">collections@australianreuse.com.au</a></p>
+</div>
+
+<script>
+/* ── ANIMATED CANVAS BACKGROUND ── */
+(function(){
+  var canvas = document.getElementById('bgCanvas');
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var particleCount = 50;
+
+  function resize(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function Particle(){
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.vx = (Math.random() - 0.5) * 0.35;
+    this.vy = (Math.random() - 0.5) * 0.35;
+    this.radius = Math.random() * 2.2 + 0.8;
+    this.opacity = Math.random() * 0.25 + 0.08;
+  }
+
+  for(var i = 0; i < particleCount; i++){
+    particles.push(new Particle());
+  }
+
+  function animate(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for(var i = 0; i < particles.length; i++){
+      var p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      if(p.x < 0) p.x = canvas.width;
+      if(p.x > canvas.width) p.x = 0;
+      if(p.y < 0) p.y = canvas.height;
+      if(p.y > canvas.height) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(180,3,109,' + p.opacity + ')';
+      ctx.fill();
+
+      for(var j = i + 1; j < particles.length; j++){
+        var p2 = particles[j];
+        var dx = p.x - p2.x;
+        var dy = p.y - p2.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if(dist < 130){
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = 'rgba(180,3,109,' + (0.05 * (1 - dist / 130)) + ')';
+          ctx.lineWidth = 0.7;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+/* ── FORM SUBMISSION — 3-LAYER FALLBACK ── */
+(function(){
+  var form = document.getElementById('contactForm');
+  var btn = document.getElementById('submitBtn');
+  var msg = document.getElementById('formMsg');
+  var webhookUrl = 'https://n8n.hummingweb.com.au/webhook/australian-reuse-enquiry';
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    msg.className = 'form-msg';
+    msg.textContent = '';
+
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var postcode = document.getElementById('postcode').value.trim();
+
+    if(!name || !email || !postcode){
+      msg.className = 'form-msg error';
+      msg.textContent = 'Please fill in all required fields.';
+      return;
+    }
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(email)){
+      msg.className = 'form-msg error';
+      msg.textContent = 'Please enter a valid email address.';
+      return;
+    }
+
+    if(!/^\d{4}$/.test(postcode)){
+      msg.className = 'form-msg error';
+      msg.textContent = 'Please enter a valid 4-digit Australian postcode.';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.innerHTML = 'Sending... <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>';
+
+    var payload = {
+      name: name,
+      email: email,
+      phone: phone,
+      postcode: postcode,
+      submitted_at: new Date().toISOString(),
+      source: 'Australian ReUse Landing Page'
+    };
+
+    /* Layer 1: Normal fetch */
+    fetch(webhookUrl, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    })
+    .then(function(res){
+      if(res.ok){
+        showSuccess();
+      } else {
+        throw new Error('Not OK');
+      }
+    })
+    .catch(function(){
+      /* Layer 2: no-cors fire-and-forget */
+      fetch(webhookUrl, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload),
+        mode: 'no-cors'
+      })
+      .then(function(){
+        showSuccess();
+      })
+      .catch(function(){
+        /* Layer 3: mailto fallback */
+        var mailBody = 'Name: ' + name + '%0AEmail: ' + email + '%0APhone: ' + phone + '%0APostcode: ' + postcode;
+        window.location.href = 'mailto:collections@australianreuse.com.au?subject=Australian%20ReUse%20Enquiry&body=' + mailBody;
+        showSuccess();
+      });
+    });
+
+    function showSuccess(){
+      form.reset();
+      btn.disabled = false;
+      btn.innerHTML = 'Send Enquiry <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+      msg.className = 'form-msg success';
+      msg.textContent = "Thank you! We'll be in touch within 1 business day.";
+      if(window.dataLayer){
+        window.dataLayer.push({'event':'form_submission','form_name':'australian_reuse_enquiry'});
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>
